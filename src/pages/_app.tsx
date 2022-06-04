@@ -1,12 +1,16 @@
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
 import { ChakraProvider } from "@chakra-ui/react";
 import { theme } from "../styles/theme";
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
-    <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+      <ChakraProvider resetCSS theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </ThirdwebProvider>
   );
 }
 
-export default MyApp;
+export default App;
